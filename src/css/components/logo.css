@@ -1,0 +1,37 @@
+#logo {
+  font-family: 'GmarketSansBold';
+  display: flex;
+}
+
+.logo-first {
+  font-size: 130px;
+}
+
+.logo-second {
+  font-size: 88px;
+}
+
+.devil {
+  margin-left: 13px;
+  object-fit: contain;
+  width: 100px;
+  height: 90px;
+}
+
+.dots img {
+
+  object-fit: contain;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 45px;
+  margin-bottom: 15px;
+
+}
+
+.dots img:last-child {
+  margin-left: 65px;
+}
+
+
+
