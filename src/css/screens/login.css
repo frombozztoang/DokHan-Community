@@ -1,0 +1,88 @@
+.flags img {
+  object-fit: contain;
+  width: 74px;
+  height: 71px;
+  border-radius: 50%;
+}
+
+main {
+
+
+  margin-top: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+
+}
+
+.login-right {
+  padding:45px 30px;
+  margin-right: 110px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+}
+
+.login-info {
+  margin-top: 30px;
+  color: var(--color-black70);
+  font-size: 16px;
+}
+
+.login-info div{
+  margin-top: 11px;
+}
+
+.login-forms input {
+  font-family: 'GmarketSansMedium';
+  box-sizing: border-box;
+  display: flex;
+  opacity: 0.6;
+  border: 1px solid rgba(0, 0, 0, 0.45);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  width: 280px;
+  height: 55px;
+  border-radius: 15px;
+  padding: 17px;
+  margin-bottom: 20px;
+}
+
+.login-forms input[type="submit"] {
+  opacity: 0.8;
+  justify-content: center;
+  color: white;
+  border: 1px solid var(--main-color-red);
+  background-color:var(--main-color-red);
+box-sizing: border-box;
+
+}
+
+.line {
+  border:1px solid rgba(0, 0, 0, 0.25);
+  border-bottom: none;
+
+}
+
+.login-join {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.login-join a {
+  color: var(--main-color-red);
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.login-around {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 13px;
+  color: var(--color-black70);
+  border
+}
