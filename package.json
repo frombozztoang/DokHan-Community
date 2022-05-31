@@ -1,0 +1,28 @@
+{
+  "name": "DokHan-Community",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/frombozztoang/DokHan-Community.git",
+  "author": {
+    "name": "LEE BO HYUN"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^9.7.0",
+    "eslint": "8.2.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-import": "2.25.2",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.3",
+    "prettier": "2.6.2"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
+  },
+  "scripts": {
+    "prepare": "husky install"
+  }
+}
