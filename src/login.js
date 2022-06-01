@@ -1,3 +1,5 @@
+let login_info = null;
+
 function checkLogin(){
     const testId = "admin@naver.com";
     const testPw = "1234";
@@ -22,37 +24,26 @@ function checkLogin(){
         alert("비밀번호를 입력해주세요.")
         return false;
     }
-    //로그인 성공 
-    else if(id.value == testId && pw.value == testPw){
-        location.href = "testmain.html";
-        return true;
-    }
-    // 아이디 혹은 비밀번호가 틀린 경우
+    //올바른 입력일 시
     else{
-        alert("아이디 혹은 비밀번호를 확인해주세요.")
-        return false;
+        login_info = [id.value, pw.value+""];
+        return true;
     }
 }
 
 function login(){
     var isLogin = checkLogin();
     if(isLogin == true){
-        var file = new File("testuserinfo1.txt");
-        var reader = new FileReader();
-        reader.readAsText(file, "UTF-8");
-
-        reader.onload = function(){
-            alert(reader.result);
+        var index = window.localStorage.getItem('index')*1;
+        for(var i=1;i<=index;i++){
+            var fileName = "user"+i;
+            var user_info_String = window.localStorage.getItem(fileName);
+            var user_info = JSON.parse(user_info_String);
+            if(login_info[0] == user_info[0] && login_info[1] == user_info[1]){
+                location.href = "testmain.html";
+                return;
+            }
         }
+        alert("아이디 혹은 비밀번호를 확인해주세요.")
     }
-}
-
-function testfile(){
-   var file = new File("c:\Users\zeki\OneDrive\문서\GitHub\DokHan-Community\src\testuserinfo1.txt");
-        var reader = new FileReader();
-        reader.readAsText(file, "UTF-8");
-
-        reader.onload = function(){
-            alert(reader.result);
-        }
 }

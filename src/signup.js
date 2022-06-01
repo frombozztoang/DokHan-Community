@@ -1,5 +1,13 @@
-var checkedEmail = null;
+let checkedEmail = null;
+let index;
 
+window.onload = function(){
+    const frist_key = window.localStorage.key(0);
+    if(frist_key == null){
+        window.localStorage.setItem('index', 0);
+    } 
+    index = window.localStorage.getItem('index')*1;
+}
 function checkEmail(){
     var signUpEmail = document.getElementById('signUpEmail');
 
@@ -16,7 +24,17 @@ function checkEmail(){
         return false;
     }
     else {
-        alert("올바른 이메일 형식입니다.")
+        //이메일 중복 체크
+        for(var i=1;i<=index;i++){
+            var fileName = "user"+i;
+            var user_info_String = window.localStorage.getItem(fileName);
+            var user_info = JSON.parse(user_info_String);
+            if(signUpEmail.value == user_info[0]){
+                alert("이미 사용중인 이메일입니다.")
+                return false;
+            }
+        }
+        alert("사용가능한 이메일 입니다.")
         checkedEmail = signUpEmail.value;
         return true;
     }
@@ -50,8 +68,19 @@ function singUp(){
         return false;
     }
     else{
+        //닉네임 중복 체크
+        for(var i=1;i<=index;i++){
+            var fileName = "user"+i;
+            var user_info_String = window.localStorage.getItem(fileName);
+            var user_info = JSON.parse(user_info_String);
+            if(singUpNic.value == user_info[3]){
+                alert("이미 사용중인 닉네임입니다.")
+                return false;
+            }
+        }
         alert("회원가입을 축하합니다.")
-        var newuserInfo = [checkedEmail.value, signUpPw.value, singUpName.value, singUpNic.value];
+        const newuserInfo = [checkedEmail, signUpPw.value, singUpName.value, singUpNic.value];
+        index = index+1;
         user_singup(newuserInfo);
         location.href = "login.html";
         return true;
@@ -59,14 +88,8 @@ function singUp(){
 }
 
 function user_singup(newuserInfo){
-    alert("test, "+newuserInfo[3]);
-    var defaultpath = "C:\\Users\\zeki\\OneDrive\\문서\\GitHub\\DokHan-Community\\src";
-    var fileObject = new ActiveXObject("Scripting.FileSystemObject");
-    var fullpath = defaultpath+"\\"+newuserInfo[3];
-    
-    var contents = newuserInfo[0]+'\n'+newuserInfo[1]+'\n'+newuserInfo[2]+'\n'+newuserInfo[3]+'\n';
-    var fWrite = fileObject.CreateTextFile(fullpath, false);
-    fWrite.fWrite(contents);
-    fWrite.close();
-    alert("작성완료");
+    const userArr = JSON.stringify(newuserInfo);
+    const fileName = 'user'+index;
+    window.localStorage.setItem('index', index);
+    window.localStorage.setItem(fileName, userArr);
 }
