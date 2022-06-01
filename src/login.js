@@ -1,8 +1,15 @@
 let login_info = null;
 
+window.onload = function(){
+    const frist_key = window.localStorage.key(0);
+    if(frist_key == null){
+        window.localStorage.setItem('index', 0);
+    } 
+    window.localStorage.setItem('current_user', null);
+}
+
 function checkLogin(){
-    const testId = "admin@naver.com";
-    const testPw = "1234";
+
     var id = document.getElementById('userId');
     var pw = document.getElementById('userPw');
 
@@ -40,10 +47,15 @@ function login(){
             var user_info_String = window.localStorage.getItem(fileName);
             var user_info = JSON.parse(user_info_String);
             if(login_info[0] == user_info[0] && login_info[1] == user_info[1]){
+                window.localStorage.setItem('current_user', user_info[3]);
                 location.href = "testmain.html";
                 return;
             }
         }
         alert("아이디 혹은 비밀번호를 확인해주세요.")
     }
+}
+
+function unlogin_around(){
+    location.href = "testmain.html";
 }
