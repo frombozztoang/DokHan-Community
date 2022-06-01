@@ -1,4 +1,5 @@
-var email = false;
+var checkedEmail = null;
+
 function checkEmail(){
     var signUpEmail = document.getElementById('signUpEmail');
 
@@ -8,17 +9,15 @@ function checkEmail(){
 
     if(blank_pattern.test(signUpEmail.value) == true) {
         alert("공백은 사용할 수 없습니다.");
-        email = false;
         return false;
     }
     else if(special_pattern.test(signUpEmail.value) == true || email_pattern.test(signUpEmail.value) == false){
         alert("이메일 형식을 확인해주세요. ('@'를 제외한 특수문자는 사용할 수 없습니다.)");
-        email = false;
         return false;
     }
     else {
         alert("올바른 이메일 형식입니다.")
-        email = true;
+        checkedEmail = signUpEmail.value;
         return true;
     }
 }
@@ -46,13 +45,28 @@ function singUp(){
         //빨간색 같이 강조표시하면서 해당 칸으로 이동해서 보여주기
         return false;
     }
-    else if(email == false){
+    else if(checkedEmail == null){
         alert("이메일을 확인을 먼저 해주세요.")
         return false;
     }
     else{
         alert("회원가입을 축하합니다.")
+        var newuserInfo = [checkedEmail.value, signUpPw.value, singUpName.value, singUpNic.value];
+        user_singup(newuserInfo);
         location.href = "login.html";
         return true;
     }
+}
+
+function user_singup(newuserInfo){
+    alert("test, "+newuserInfo[3]);
+    var defaultpath = "C:\\Users\\zeki\\OneDrive\\문서\\GitHub\\DokHan-Community\\src";
+    var fileObject = new ActiveXObject("Scripting.FileSystemObject");
+    var fullpath = defaultpath+"\\"+newuserInfo[3];
+    
+    var contents = newuserInfo[0]+'\n'+newuserInfo[1]+'\n'+newuserInfo[2]+'\n'+newuserInfo[3]+'\n';
+    var fWrite = fileObject.CreateTextFile(fullpath, false);
+    fWrite.fWrite(contents);
+    fWrite.close();
+    alert("작성완료");
 }
