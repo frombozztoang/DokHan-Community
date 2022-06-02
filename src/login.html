@@ -1,44 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>login</title>
-    <script src="login.js"></script>
-    <link rel="stylesheet" href="css/screens/login.css">
-    <link rel="stylesheet" href="css/variables.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="login.js"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <main>
-        <div class="login-info">
-            <h1>독한<img src="img/devil.png"></h1>
-            <h1>커뮤니티</h1>
-            <p>독일 프랑크푸르트에 거주하는 한국인을 위한 커뮤니티입니다.</p>
-            <p>일상을 공유하고, 중고 거래와 구인 구직 서비스 등 독한 커뮤니티를 즐겨보세요!</p>
-        </div>
-        <div class="login-right login-around">
-            <div class="flags">
-                <img src="img/korea.jpg">
-                <img src="img/germany.png">
-            </div>
-            <div class="login-forms">
-                <input type="text" id="userId" placeholder="아이디"><br>
-                <input type="password" id="userPw" placeholder="비밀번호">
-                <input type="submit" value="로그인" onclick="login();">
-            </div>
-            <div class="line">
-                <hr>
-            </div>
-            <div class="login-join">
-                <p>계정이 없으신가요?</p><a href="signup.html">가입하기</a>
-            </div>
+  <main class="login">
+    <div>
+      <div id="logo">
+        <div>
+          <div class="dots">
+            <img src="img/germany.png">
+            <img src="img/korea.jpg">
 
-            <div class="login-forms login-around">
-                <input type="button" value="로그인 없이 둘러보기" onclick="unlogin_around();">
-            </div>
+          </div>
+          <div class="logo-first">독한<img class="devil" src="img/devil.png" /></div>
+          <div class="logo-second">커뮤니티</div>
         </div>
-    </main>
+      </div>
+
+      <div class="login-info">
+        독일 프랑크푸르트에 거주하는 한국인을 위한 커뮤니티입니다.
+        <div>일상을 공유하고, 중고 거래와 구인 구직 서비스 등 독한 커뮤니티를 즐겨보세요!</div>
+      </div>
+    </div>
+
+    <div class="login-right">
+
+
+      <form class="login-forms">
+        <input id="username" type="text" max="16" min="10" required placeholder="이메일">
+        <input id="password" type="password" max="16" min="10" required placeholder="비밀번호">
+        <input type="submit" value="로그인" onclick="login();">
+        <input type="submit" value="test" onclick="test();">
+
+      </form>
+
+
+      <div class="login-join">
+        <div>계정이 없으신가요?</div>
+        <a href="signup.html">가입하기</a>
+      </div>
+      <div class="line"></div>
+      <div class="login-around"><a href="testmain.html">로그인 없이 둘러보기</a></div>
+    </div>
+
+
+  </main>
 </body>
 
 </html>

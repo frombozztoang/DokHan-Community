@@ -10,8 +10,8 @@ window.onload = function(){
 
 function checkLogin(){
 
-    var id = document.getElementById('userId');
-    var pw = document.getElementById('userPw');
+    var id = document.getElementById("username");
+    var pw = document.getElementById("password");
 
     var blank_pattern = /[\s]/g;
     var special_pattern = /[`~!#$%^&*|\\\'\";:\/?]/gi;
@@ -56,6 +56,6 @@ function login(){
     }
 }
 
-function unlogin_around(){
+function test(){
     location.href = "testmain.html";
 }
