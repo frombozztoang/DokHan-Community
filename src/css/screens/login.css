@@ -6,12 +6,10 @@
 }
 
 main {
-
-
-  margin-top: 130px;
+  margin-top: 80px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
 
 
 }
