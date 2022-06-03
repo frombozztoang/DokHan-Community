@@ -15,15 +15,9 @@ function checkLogin(){
 
     var blank_pattern = /[\s]/g;
     var special_pattern = /[`~!#$%^&*|\\\'\";:\/?]/gi;
-    var email_pattern = /['@']/gi;
     //공백 혹은 특수문자 입력 시
     if( blank_pattern.test(id.value) == true || special_pattern.test(id.value) == true){
         alert("아이디를 확인해주세요.");
-        return false;
-    }
-    //이메일 형식이 아닐 시
-    if(email_pattern.test(id.value)==false){
-        alert("아이디 형식을 확인해주세요")
         return false;
     }
     //비밀번호 입력란이 공백일 경우
@@ -39,6 +33,9 @@ function checkLogin(){
 }
 
 function login(){
+    var e = window.event;
+    e.preventDefault();
+
     var isLogin = checkLogin();
     if(isLogin == true){
         var index = window.localStorage.getItem('index')*1;
