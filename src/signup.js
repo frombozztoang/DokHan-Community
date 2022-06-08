@@ -2,13 +2,12 @@ let checkedEmail = null;
 let index;
 
 window.onload = function(){
-    window.localStorage.clear();
     const frist_key = window.localStorage.key(0);
     if(frist_key == null){
-        window.localStorage.setItem('index', 0);
+        window.localStorage.setItem('total_user_Index', 0);
     } 
     window.localStorage.setItem('current_user', null);
-    index = window.localStorage.getItem('index')*1;
+    index = window.localStorage.getItem('total_user_Index')*1;
 }
 
 function checkEmail(){
@@ -55,9 +54,17 @@ function singUp(){
     var signUpPw = document.getElementById('signUpPw');
 
     var blank_pattern = /[\s]/g;
-    var special_pattern = /[`~!#$%^&*|\\\'\";:\/?]/gi;
+    var special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+    var number_pattern = /[0123456789]/gi;
 
-    if(singUpName.value=="" || blank_pattern.test(singUpName.value) == true || special_pattern.test(singUpName.value) == true){
+    if(number_pattern.test(singUpName.value) == true){
+        alert("이름에 숫자가 포함되어 있습니다."); 
+        //빨간색 같이 강조표시하면서 해당 칸으로 이동해서 보여주기
+        singUpName.focus();
+
+        return false;
+    }
+    else if(singUpName.value=="" || blank_pattern.test(singUpName.value) == true || special_pattern.test(singUpName.value) == true){
         alert("공백 또는 특수문자는 사용할 수 없습니다."); 
         //빨간색 같이 강조표시하면서 해당 칸으로 이동해서 보여주기
         return false;
@@ -99,6 +106,6 @@ function singUp(){
 function user_singup(newuserInfo){
     const userArr = JSON.stringify(newuserInfo);
     const fileName = 'user'+index;
-    window.localStorage.setItem('index', index);
+    window.localStorage.setItem('total_user_Index', index);
     window.localStorage.setItem(fileName, userArr);
 }

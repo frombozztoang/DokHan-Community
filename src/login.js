@@ -3,7 +3,7 @@ let login_info = null;
 window.onload = function(){
     const frist_key = window.localStorage.key(0);
     if(frist_key == null){
-        window.localStorage.setItem('index', 0);
+        window.localStorage.setItem('total_user_Index', 0);
     } 
     window.localStorage.setItem('current_user', null);
 }
