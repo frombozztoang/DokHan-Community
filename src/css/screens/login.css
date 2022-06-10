@@ -85,3 +85,10 @@ box-sizing: border-box;
   font-size: 13px;
   color: var(--color-black70);
 }
+
+.tooltip input{
+  background-image: url('info.png');
+  background-repeat: no-repeat;
+  background-size: 8px;
+  background-position: 250px center;
+}

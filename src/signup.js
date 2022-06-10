@@ -22,6 +22,7 @@ function checkEmail(){
 
     if(blank_pattern.test(signUpEmail.value) == true) {
         alert("공백은 사용할 수 없습니다.");
+        
         return false;
     }
     else if(special_pattern.test(signUpEmail.value) == true || email_pattern.test(signUpEmail.value) == false){
@@ -44,7 +45,6 @@ function checkEmail(){
     }
     
 }
-
 function singUp(){
     var e = window.event;
     e.preventDefault();
