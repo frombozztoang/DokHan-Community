@@ -13,23 +13,9 @@ function checkLogin(){
     var id = document.getElementById("username");
     var pw = document.getElementById("password");
 
-    var blank_pattern = /[\s]/g;
-    var special_pattern = /[`~!#$%^&*|\\\'\";:\/?]/gi;
-    //공백 혹은 특수문자 입력 시
-    if( blank_pattern.test(id.value) == true || special_pattern.test(id.value) == true){
-        alert("아이디를 확인해주세요.");
-        return false;
-    }
-    //비밀번호 입력란이 공백일 경우
-   else if(pw.value == "") {
-        alert("비밀번호를 입력해주세요.")
-        return false;
-    }
     //올바른 입력일 시
-    else{
-        login_info = [id.value, pw.value+""];
-        return true;
-    }
+    login_info = [id.value, pw.value+""];
+    return true;
 }
 
 function login(){
@@ -38,7 +24,7 @@ function login(){
 
     var isLogin = checkLogin();
     if(isLogin == true){
-        var index = window.localStorage.getItem('index')*1;
+        var index = window.localStorage.getItem('total_user_Index')*1;
         for(var i=1;i<=index;i++){
             var fileName = "user"+i;
             var user_info_String = window.localStorage.getItem(fileName);

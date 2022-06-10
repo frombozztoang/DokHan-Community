@@ -34,20 +34,29 @@
           <div class="login-right">
 
 
-            <form class="login-forms" onsubmit="checkEmail();">
-                <input type="text" id="signUpName" required placeholder="성명" />
-                <input type="text" id="signUpNic" required placeholder="닉네임" />
-                <input type="email" id="signUpEmail" required placeholder="이메일 주소" />
+            <form class="login-forms" onsubmit="return checkEmail();">
+              <div class="tooltip">
+                <input type="text" id="signUpName" required placeholder="성명" pattern="^[a-zA-Z]+$"
+                  title="영문만 사용할 수 있습니다."/>
+                  <div class="error"></div>
+                <input type="text" id="signUpNic" required placeholder="닉네임" pattern="^[a-zA-Z0-9]+$"
+                  title="숫자와 영문만 사용할 수 있습니다."/>
+                  <div id="nickError" class="error"></div>
+                <input type="email" id="signUpEmail" required placeholder="이메일 주소"/>
+                <div id="emailError" class="error"></div>
+              </div>
                 <input type="submit" value="이메일 확인" />
                 <div class="tooltip">
-                  <input type="password" id="signUpPw" required placeholder="비밀번호"/>
+                  <input type="password" id="signUpPw" required placeholder="비밀번호" 
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" 
+                    title="숫자, 영문, 특수문자를 각 1개 이상 포함시켜주세요.(최소8자리~최대16자리)"/>
                 </div>
       
             </form>
       
             <div class="line"></div>
             <br>
-            <form class="login-forms" onsubmit="singUp();">
+            <form class="login-forms" action="login.html" onsubmit="return singUp();">
                 <input type="submit" id="signup" value="가입하기" >
             </form>
             <div class="login-join">
