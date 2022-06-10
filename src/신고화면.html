@@ -6,105 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>신고 화면</title>
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    #report {
-      display: none;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      margin-left: -350px;
-      margin-top: -225px;
-      width: 700px;
-      height: 450px;
-      /*border: 1px solid black;*/
-      background-color: #F1F1F1;
-    }
-    #report div {
-      /*border: 1px solid black;*/
-      height: 50px;
-    }
-    #report > div {
-      margin-left: 30px;
-      margin-right: 80px;
-      margin-top: 10px;
-    }
-    #report > div:first-child, #report > div:nth-child(3) {
-      line-height: 50px;
-    }
-    #report > div:last-child {
-      margin: 0 auto;
-      margin-top: 20px;
-      width: 190px;
-      position: relative;
-    }
-    #reportReasonSelUp, #reportReasonSelDown {
-      overflow: hidden;
-    }
-    #reportReasonSelUp > *, #reportReasonSelDown > * {
-      float: left;
-    }
-    #reportReasonSelUp > * {
-      margin-right: 20px;
-      width: 125px;
-    }
-    #reportReasonSelDown > * {
-      margin-right: 20px;
-      width: 65px;
-    }
-    #reportReasonSelDown > div:first-child {
-      margin-right: 20px;
-      width: 180px;
-    }
-    input, button {
-      border: 1px solid white;
-    }
-    body > button {
-      border: 1px solid black;
-    }
-    .input button {
-      background-color: #FFFFFF;
-      color: gray;
-      width: 125px;
-      height: 50px;
-      font-size: 17px;
-      font-weight: 700;
-    }
-    .input {
-      background-color: #FFFFFF;
-    }
-    #reportReasonSelDown > .input:first-child > button {
-      width: 180px;
-    }
-    #reportReasonSelDown > .input:nth-child(2) > button {
-      width: 65px;
-    }
-    #otherReportReason {
-      margin-bottom: 27px;
-    }
-    input[type="text"] {
-      line-height: 60px;
-      width: 580px;
-      height: 45px;
-    }
-    #reportOrCancel > * {
-      position: absolute;
-      top: 7px;
-      color: #FFFFFF;
-      height: 30px;
-      border: 1px solid white;
-      border-radius: 5px;
-      box-shadow: 0 3px 1px gray;
-    }
-    #reportOrCancel > button:first-child {
-      background-color: #909090;
-      margin-right: 70px;
-    }
-    #reportOrCancel > button:nth-child(2) {
-      left: 90px;
-      width: 100px;
-      background-color: #DC2024;
-    }
-  </style>
+  
   <script>
     function showReportScreen () {
       var rptScreen = document.getElementById('report');
@@ -126,8 +28,10 @@
       buttonObj.style.color = '#FFFFFF';
     }
     var isClicked = [false, false, false, false, false, false];
-    function initIsClicked () {
-      for(var i = 0; i < isClicked.length; i++) isClicked[i] = false;
+    function initIsClicked (clicked) {
+      for(var i = 0; i < isClicked.length; i++) {
+        if(i != clicked) isClicked[i] = false;
+      }
     }
     var inputValue = '';
     var elseInput = '';
@@ -158,14 +62,16 @@
     function btLeave(i) {
       // 마우스 나가면 이벤트 정의
       var button = document.querySelectorAll('.input > button')[i];
-      button.style.backgroundColor = '#FFFFFF';
-      button.style.color = 'gray';
+      if(!isClicked[i]){
+        button.style.backgroundColor = '#FFFFFF';
+        button.style.color = 'gray';
+      }
     }
     window.onload = function () {
       var buttons = document.querySelectorAll('.input > button');
       buttons[0].onclick = function () {
-        // initIsClicked();
         btClick(0);
+        initIsClicked(0);
         isClicked[0] = !isClicked[0];
       }
       buttons[0].onmouseenter = function () {
@@ -176,8 +82,8 @@
       }
       //------------------------------------------------
       buttons[1].onclick = function () {
-        // initIsClicked();
         btClick(1);
+        initIsClicked(1);
         isClicked[1] = !isClicked[1];
       }
       buttons[1].onmouseenter = function () {
@@ -188,8 +94,8 @@
       }
       //------------------------------------------------
       buttons[2].onclick = function () {
-        // initIsClicked();
         btClick(2);
+        initIsClicked(2);
         isClicked[2] = !isClicked[2];
       }
       buttons[2].onmouseenter = function () {
@@ -200,8 +106,8 @@
       }
       //------------------------------------------------
       buttons[3].onclick = function () {
-        // initIsClicked();
         btClick(3);
+        initIsClicked(3);
         isClicked[3] = !isClicked[3];
       }
       buttons[3].onmouseenter = function () {
@@ -212,8 +118,8 @@
       }
       //------------------------------------------------
       buttons[4].onclick = function () {
-        // initIsClicked();
         btClick(4);
+        initIsClicked(4);
         isClicked[4] = !isClicked[4];
       }
       buttons[4].onmouseenter = function () {
@@ -224,16 +130,15 @@
       }
       //------------------------------------------------
       buttons[5].onclick = function () {
-        // initIsClicked();
         btClick(5);
+        initIsClicked(5);
         isClicked[5] = !isClicked[5];
       }
       buttons[5].onmouseenter = function () {
         btEnter(5);
       }
       buttons[5].onmouseleave = function () {
-        // btLeave(5);
-        if(!isClicked[5]) btLeave(5);
+        btLeave(5);
       }
     }
     function report(){
@@ -254,12 +159,6 @@
         alert('신고 대상 : ' + reportObj + "\n" + '신고 사유 : ' + elseInput.value);
       }
       else alert('신고 대상 : ' + reportObj + "\n" + '신고 사유 : ' + inputValue);
-    }
-    function showClickStatus () {
-      var temp = '';
-      for(var i = 0; i < isClicked.length; i ++)
-        temp += i + '번 : ' + isClicked[i] + '\n';
-      alert(temp);
     }
   </script>
 </head>
@@ -305,6 +204,5 @@
       <button id="doReport" onclick="report()">신고하기</button>
     </div>
   </div>
-  <button onclick="showClickStatus()">불리언</button>
 </body>
 </html>
