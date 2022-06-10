@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>신고 화면</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    #report {
+      display: none;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -350px;
+      margin-top: -225px;
+      width: 700px;
+      height: 450px;
+      /*border: 1px solid black;*/
+      background-color: #F1F1F1;
+    }
+    #report div {
+      /*border: 1px solid black;*/
+      height: 50px;
+    }
+    #report > div {
+      margin-left: 30px;
+      margin-right: 80px;
+      margin-top: 10px;
+    }
+    #report > div:first-child, #report > div:nth-child(3) {
+      line-height: 50px;
+    }
+    #report > div:last-child {
+      margin: 0 auto;
+      margin-top: 20px;
+      width: 190px;
+      position: relative;
+    }
+    #reportReasonSelUp, #reportReasonSelDown {
+      overflow: hidden;
+    }
+    #reportReasonSelUp > *, #reportReasonSelDown > * {
+      float: left;
+    }
+    #reportReasonSelUp > * {
+      margin-right: 20px;
+      width: 125px;
+    }
+    #reportReasonSelDown > * {
+      margin-right: 20px;
+      width: 65px;
+    }
+    #reportReasonSelDown > div:first-child {
+      margin-right: 20px;
+      width: 180px;
+    }
+    input, button {
+      border: 1px solid white;
+    }
+    body > button {
+      border: 1px solid black;
+    }
+    .input button {
+      background-color: #FFFFFF;
+      color: gray;
+      width: 125px;
+      height: 50px;
+      font-size: 17px;
+      font-weight: 700;
+    }
+    .input {
+      background-color: #FFFFFF;
+    }
+    #reportReasonSelDown > .input:first-child > button {
+      width: 180px;
+    }
+    #reportReasonSelDown > .input:nth-child(2) > button {
+      width: 65px;
+    }
+    #otherReportReason {
+      margin-bottom: 27px;
+    }
+    input[type="text"] {
+      line-height: 60px;
+      width: 580px;
+      height: 45px;
+    }
+    #reportOrCancel > * {
+      position: absolute;
+      top: 7px;
+      color: #FFFFFF;
+      height: 30px;
+      border: 1px solid white;
+      border-radius: 5px;
+      box-shadow: 0 3px 1px gray;
+    }
+    #reportOrCancel > button:first-child {
+      background-color: #909090;
+      margin-right: 70px;
+    }
+    #reportOrCancel > button:nth-child(2) {
+      left: 90px;
+      width: 100px;
+      background-color: #DC2024;
+    }
+  </style>
+  <script>
+    function showReportScreen () {
+      var rptScreen = document.getElementById('report');
+      rptScreen.style.display = "block";
+    }
+    function cancel(){  
+      var rptScreen = document.getElementById('report');
+      rptScreen.style.display = "none";
+    }
+    function changeColor(buttonObj) {
+      // 클릭 시 색 변환
+      var buttons = document.querySelectorAll('.input > button');
+      for(var i = 0; i < buttons.length; i++) {
+        buttons[i].style.backgroundColor = '#FFFFFF';
+        buttons[i].style.color = 'gray';
+      }
+      
+      buttonObj.style.backgroundColor = '#DC2024';
+      buttonObj.style.color = '#FFFFFF';
+    }
+    var isClicked = [false, false, false, false, false, false];
+    function initIsClicked () {
+      for(var i = 0; i < isClicked.length; i++) isClicked[i] = false;
+    }
+    var inputValue = '';
+    var elseInput = '';
+    function btClick(i) {
+      // 클릭시 이벤트 정의
+      var buttons = document.querySelectorAll('.input > button');
+      changeColor(buttons[i]);
+      elseInput = document.querySelector('#otherReportReason > input');
+      if(i == 5) {
+          if(elseInput.getAttribute('disabled') == 'disabled') elseInput.removeAttribute('disabled');
+          else {
+            elseInput.setAttribute('disabled', 'disabled');
+            elseInput.value = '';
+          }
+      } else {
+          elseInput.setAttribute('disabled', 'disabled');
+          elseInput.value = '';
+      }
+      if(!isClicked[i]) inputValue = buttons[i].textContent;
+      else inputValue = '';
+    }
+    function btEnter(i) {
+      // 마우스 들어오면 이벤트 정의
+      var button = document.querySelectorAll('.input > button')[i];
+      button.style.backgroundColor = '#DC2024';
+      button.style.color = '#FFFFFF';
+    }
+    function btLeave(i) {
+      // 마우스 나가면 이벤트 정의
+      var button = document.querySelectorAll('.input > button')[i];
+      button.style.backgroundColor = '#FFFFFF';
+      button.style.color = 'gray';
+    }
+    window.onload = function () {
+      var buttons = document.querySelectorAll('.input > button');
+      buttons[0].onclick = function () {
+        // initIsClicked();
+        btClick(0);
+        isClicked[0] = !isClicked[0];
+      }
+      buttons[0].onmouseenter = function () {
+        btEnter(0);
+      }
+      buttons[0].onmouseleave = function () {
+        btLeave(0);
+      }
+      //------------------------------------------------
+      buttons[1].onclick = function () {
+        // initIsClicked();
+        btClick(1);
+        isClicked[1] = !isClicked[1];
+      }
+      buttons[1].onmouseenter = function () {
+        btEnter(1);
+      }
+      buttons[1].onmouseleave = function () {
+        btLeave(1);
+      }
+      //------------------------------------------------
+      buttons[2].onclick = function () {
+        // initIsClicked();
+        btClick(2);
+        isClicked[2] = !isClicked[2];
+      }
+      buttons[2].onmouseenter = function () {
+        btEnter(2);
+      }
+      buttons[2].onmouseleave = function () {
+        btLeave(2);
+      }
+      //------------------------------------------------
+      buttons[3].onclick = function () {
+        // initIsClicked();
+        btClick(3);
+        isClicked[3] = !isClicked[3];
+      }
+      buttons[3].onmouseenter = function () {
+        btEnter(3);
+      }
+      buttons[3].onmouseleave = function () {
+        btLeave(3);
+      }
+      //------------------------------------------------
+      buttons[4].onclick = function () {
+        // initIsClicked();
+        btClick(4);
+        isClicked[4] = !isClicked[4];
+      }
+      buttons[4].onmouseenter = function () {
+        btEnter(4);
+      }
+      buttons[4].onmouseleave = function () {
+        btLeave(4);
+      }
+      //------------------------------------------------
+      buttons[5].onclick = function () {
+        // initIsClicked();
+        btClick(5);
+        isClicked[5] = !isClicked[5];
+      }
+      buttons[5].onmouseenter = function () {
+        btEnter(5);
+      }
+      buttons[5].onmouseleave = function () {
+        // btLeave(5);
+        if(!isClicked[5]) btLeave(5);
+      }
+    }
+    function report(){
+      var reportObj = document.querySelector('#selReportContinput > input').value;
+      if(reportObj.length == 0) {
+        alert('신고 대상을 입력해 주세요');
+        return;
+      }
+      if(inputValue.length == 0) {
+        alert('버튼을 클릭해 주세요');
+        return;
+      }
+      if(inputValue == '기타') {
+        if(elseInput.value.length == 0) {
+          alert('기타 사유를 입력해 주세요');
+          return;
+        }
+        alert('신고 대상 : ' + reportObj + "\n" + '신고 사유 : ' + elseInput.value);
+      }
+      else alert('신고 대상 : ' + reportObj + "\n" + '신고 사유 : ' + inputValue);
+    }
+    function showClickStatus () {
+      var temp = '';
+      for(var i = 0; i < isClicked.length; i ++)
+        temp += i + '번 : ' + isClicked[i] + '\n';
+      alert(temp);
+    }
+  </script>
+</head>
+<body>
+  <button onclick="showReportScreen()">신고하기</button>
+  <div id="report">
+    <div id="selReportContLabel">
+      <p>신고를 하면 해당 게시글, 해당 유저는 검토 후 삭제, 차단 됩니다.</p>
+    </div>
+    <div id="selReportContinput" class="input">
+      <input type="text" placeholder="신고할 게시글 혹은 사용자 링크">
+    </div>
+    <div id="reportReasonLabel">
+      <p>신고 사유</p>
+    </div>
+    <div id="reportReasonSelUp">
+      <div class="input">
+        <button>저작권 침해</button>
+      </div>
+      <div class="input">
+        <button>음란성/선정성</button>
+      </div>
+      <div class="input">
+        <button>개인정보노출</button>
+      </div>
+      <div class="input">
+        <button>욕설/인신공격</button>
+      </div>
+    </div>
+    <div id="reportReasonSelDown">
+      <div class="input">
+        <button>같은내용 반복개시</button>
+      </div>
+      <div class="input">
+        <button>기타</button>
+      </div>
+    </div>
+    <div id="otherReportReason">
+      <input type="text" placeholder="기타 신고 사유를 작성해 주세요..." disabled = 'disabled'>
+    </div>
+    <div id="reportOrCancel">
+      <button id="cancel" onclick="cancel()">취소</button>
+      <button id="doReport" onclick="report()">신고하기</button>
+    </div>
+  </div>
+  <button onclick="showClickStatus()">불리언</button>
+</body>
+</html>
