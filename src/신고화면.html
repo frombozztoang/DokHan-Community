@@ -142,6 +142,7 @@
       }
     }
     function report(){
+      var temp = '';
       var reportObj = document.querySelector('#selReportContinput > input').value;
       if(reportObj.length == 0) {
         alert('신고 대상을 입력해 주세요');
@@ -156,9 +157,17 @@
           alert('기타 사유를 입력해 주세요');
           return;
         }
-        alert('신고 대상 : ' + reportObj + "\n" + '신고 사유 : ' + elseInput.value);
+        temp = '신고 대상 : ' + reportObj + "\n" + '신고 사유 : ' + elseInput.value;
+        alert(temp);
       }
-      else alert('신고 대상 : ' + reportObj + "\n" + '신고 사유 : ' + inputValue);
+      else {
+        temp = '신고 대상 : ' + reportObj + "\n" + '신고 사유 : ' + inputValue;
+        alert(temp);
+      }
+
+      localStorage.setItem('reportWho', reportObj);
+      localStorage.setItem('reportReason', inputValue);
+      alert('로컬스토리지 저장 완료' + '\n' + localStorage.getItem('reportWho') + ', ' + localStorage.getItem('reportReason'));
     }
   </script>
 </head>
