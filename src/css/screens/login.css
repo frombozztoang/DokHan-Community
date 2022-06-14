@@ -84,5 +84,21 @@ box-sizing: border-box;
   margin-top: 25px;
   font-size: 13px;
   color: var(--color-black70);
-  border
+}
+
+.tooltip input{
+  background-image: url("info.png");
+  background-repeat: no-repeat;
+  background-size: 8px;
+  background-position: 250px center;
+}
+
+.error{
+  margin: 0px;
+  padding: 0px;
+  text-align: left;
+  font-size: 1px;
+  height: 20px;
+  color: red;
+  font-weight: 700;
 }
