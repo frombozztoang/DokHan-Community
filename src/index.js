@@ -44,15 +44,6 @@ function count(type)  {
 }
 
 
-
-const inputBar = document.querySelector("#comment-input");
-const comments = document.querySelector("#comments");
-const btn = document.querySelector("#submit");
-const mainCommentCount = document.querySelector('#count'); //맨위 댓글 숫자 세는거.
-var input = document.querySelector("#comment-input");
-
-
-
 //타임스템프 만들기
 function generateTime(){
     const date = new Date();
@@ -82,123 +73,100 @@ function generateUserName(){
 
 //댓글 삭제
 function deleteComments(event){    
-  const gArray = JSON.parse(window.localStorage.getItem("comment"));
-  if(confirm("댓글을 정말 삭제하시겠습니까?")) {
-    const btn = event.target; 
-    const list = btn.parentNode.parentNode;//commentList
+    const bt3n = event.target; 
+    const list = bt3n.parentNode.parentNode;//commentList
     comments.removeChild(list);
-    alert(list);
-    
-    //alert(gArray[0][0]);
-    //alert(JSON.stringify(gArray.pop()));
-    // if(btn == JSON.stringify(gArray[0])) {
-    //   alert("aa");
-    // } else {
-    //   alert("bb");
-    // }
-    
+    const cleanComment = Comments.filter(function(index) {
+      return index.id !== parseInt(list.id);
+    })
+    Comments = cleanComment
+    localStorage.setItem("comment", JSON.stringify(Comments));
+     
     //메인댓글 카운트 줄이기.
     if(mainCommentCount.innerHTML <='0'){
         mainCommentCount.innerHTML = 0;
     }else{
         mainCommentCount.innerHTML--;
     }
-    alert("댓글이 정상적으로 삭제되었습니다.");
-  } else 
-  alert("댓글 삭제를 취소하셨습니다.");
-
 }
+
+const inputBar = document.querySelector("#comment-input");
+const comments = document.querySelector("#comments");
+const btn = document.querySelector("#submit");
+const mainCommentCount = document.querySelector('#count'); //맨위 댓글 숫자 세는거.
+var input = document.querySelector("#comment-input");
+
+
 
 //화면 전환 시 댓글 유지
 function makeComment() {
-  const gArray = JSON.parse(window.localStorage.getItem("comment"));
-  
- for(var num in gArray) {
-  mainCommentCount.innerHTML++;
-  const gArrayA = gArray[num];
-  var gName = gArrayA[0];
-  var gContent = gArrayA[1];
-  var gTime = gArrayA[2];
-
-  const userName = document.createElement('div');
-  const inputValue = document.createElement('span');
-  const showTime = document.createElement('div');
-  const voteDiv = document.createElement('div');
-
-
-  const commentList = document.createElement('div');  //이놈이 스코프 밖으로 나가는 순간 하나지우면 다 지워지고 입력하면 리스트 다불러옴.
-
-  const delBtn = document.createElement('button');
-  delBtn.className ="deleteComment";
-  delBtn.innerHTML="삭제";
-  commentList.className = "eachComment";
-  userName.className="name";
-  inputValue.className="inputValue";
-  showTime.className="time";
-  voteDiv.className="voteDiv";
-  
-  userName.innerHTML = gName; 
-  inputValue.innerText = gContent;
-  showTime.innerHTML = gTime;
-  userName.appendChild(delBtn);  
-
-  commentList.appendChild(userName);
-  commentList.appendChild(inputValue);
-  commentList.appendChild(showTime);
-  comments.prepend(commentList);
-  delBtn.addEventListener("click",deleteComments);
-  console.dir(comments);
+const loadedComment = localStorage.getItem(tArray)
+if(loadedComment !== null) {
+  const parsedComment = JSON.parse(loadedComment)
+  parsedComment.forEach(function(index) {
+    showComment(index.comment)
+  })
+  mainCommentCount.innerHTML = Comments.length;
+}
 }
 
-}
 
 //댓글보여주기
+const tArray = "comment"
+let Comments = []
+
 function showComment(comment){
-    const tArray = JSON.parse(window.localStorage.getItem("comment"));
-    var array = new Array();
+    //const tArray = JSON.parse(window.localStorage.getItem("comment"));
     const userName = document.createElement('div');
     const inputValue = document.createElement('span');
     const showTime = document.createElement('div');
     const voteDiv = document.createElement('div');
     const countSpan = document.createElement('span')
+    const newId = Comments.length + 1
     
     const commentList = document.createElement('div');  //이놈이 스코프 밖으로 나가는 순간 하나지우면 다 지워지고 입력하면 리스트 다불러옴.
     //삭제버튼 만들기
     const delBtn = document.createElement('button');
     delBtn.className ="deleteComment";
     delBtn.innerHTML="삭제";
+    delBtn.addEventListener('click', deleteComments)
     commentList.className = "eachComment";
     userName.className="name";
     inputValue.className="inputValue";
     showTime.className="time";
     voteDiv.className="voteDiv";
+    
+    
     //유저네임가져오기 
     var saveName = generateUserName(); 
      userName.innerHTML = saveName; 
-    array.push(saveName);
     userName.appendChild(delBtn);  
     //입력값 넘기기
     inputValue.innerText = comment;
-    array.push(comment);
     //타임스템프찍기
     var saveTime = generateTime();
     showTime.innerHTML = saveTime;
-    array.push(saveTime);
     countSpan.innerHTML=0;
     //댓글뿌려주기       
     commentList.appendChild(userName);
     commentList.appendChild(inputValue);
     commentList.appendChild(showTime);
     commentList.appendChild(voteDiv);
-    comments.prepend(commentList);
-    tArray.push(array);
-    delBtn.addEventListener("click",deleteComments);
+    commentList.id = newId
+
+    comments.appendChild(commentList);
+    const commentObj = {
+      name : saveName,
+      comment : comment,
+      time : saveTime,
+      id : newId
+    }
+
+    Comments.push(commentObj);
     //console.dir(comments);
 
-    window.localStorage.setItem("comment", JSON.stringify(tArray));
+    window.localStorage.setItem(tArray, JSON.stringify(Comments));
 }
-
-
 
 //버튼만들기+입력값 전달
 function pressBtn(){ 
@@ -215,12 +183,18 @@ function pressBtn(){
 
 //엔터로 댓글 입력
 
-   input.addEventListener("keyup", function (event) {
+inputBar.addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
       event.preventDefault();
       btn.click();
     }
   });
+
+  function init() {
+  makeComment
+  }
+  init()
+
   
 
 
