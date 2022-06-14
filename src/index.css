@@ -1,0 +1,91 @@
+#form-commentInfo{
+    text-align: center;
+    width: 100%;
+}
+
+#comment-count{
+    margin-bottom: 10px; 
+}
+
+#comment-input{
+    vertical-align:super;
+    text-align: left;
+    border: none;    
+    width: 788px;
+    height: 110px;
+    background: #F1F1F1;
+    border-radius: 10px;
+    font-family: 'GmarketSansMedium';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 23px;
+
+    color: rgba(0, 0, 0, 0.8);
+}
+
+#submit{
+    box-sizing: border-box;
+    background: #DC2024;
+    opacity: 0.8;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    width: 5.5em;
+    height: 3.3em;;
+    font-family: 'GmarketSansBold';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+
+.eachComment{   
+    width :50%; 
+    margin: 10px;  
+    padding: 0.5em; 
+    border-bottom: 1px solid #c1bcba;
+}
+
+.eachComment .name{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.3em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.eachComment .inputValue{
+    font-size: 1.2em;  
+}
+
+.eachComment .time{
+    font-size: 0.7em;
+    color: #c1bcba;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    
+}
+
+.eachComment .deleteComment{
+    box-sizing: border-box;
+    background: #DC2024;
+    width: 70px;
+    height: 40px;
+opacity: 0.8;
+border: 1px solid #FFFFFF;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+font-family: 'GmarketSansBold';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 23px;
+font-weight: bold;
+color: #FFFFFF;
+}
+
+ 

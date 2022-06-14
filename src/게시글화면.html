@@ -4,42 +4,202 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/components/logo.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <title>게시글 화면</title>
     <style>
-        *{
-            text-align: center;
-            
+     header { 
+            height: 100px;
         }
-        header{
-            border : 2px solid red;
-            line-height: 55px;
-            height : 55px;
+     #profile {
+    position: absolute;
+    width: 125.17px;
+    height: 44px;
+    left: 1350px;
+    top: 35px;
+    font-family: "GmarketSansBold";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18.9655px;
+    line-height: 22px;
+    background-color: #FFFFFF;
+    color: #000000;
+    opacity: 0.8;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    }
+     .title {
+                position: absolute;
+                width: 800px;
+                height: 40px;
+                left: 68px;
+                top: 120px;
+
+                font-family: 'GmarketSansBold';
+                font-style: normal;
+                font-weight: 900;
+                font-size: 50px;
+                line-height: 40px;
+
+                color: #000000;
         }
+        .sub {
+            position: absolute;
+            width: 188.25px;
+            height: 20.08px;
+            left: 145.75px;
+            top: 190px;
+
+            font-family: 'GmarketSansMedium';
+            font-style: normal;
+            font-weight:bold;
+            font-size: 21px;
+            line-height: 24px;
+
+            color: #000000;
+        }
+        #by {
+            font-weight:lighter;
+        }
+
         article{
-            border : 2px solid green;
-            height : 300px;
+            height : 800px;
+            text-align: left;
            
         }
-        footer {
-            border : 2px solid black;            
-            height : 55px;
-            line-height : 55px;
+        #contenta {
+            position: absolute;
+            width: 928px;
+            height: 30px;
+            left: 162px;
+            top: 685px;
+
+            font-family: 'GmarketSansMedium';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 23px;
+
+            color: #000000;
+        }
+      
+        #button {
+           border : 0;
+           outline : 0;
+           color : red;
+           font-family: 'GmarketSansBold';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 21px;
+            line-height: 24px;
+           
+        }
+        #like {
+            position: absolute;
+            width: 86px;
+            height: 44px;
+            left: 1212px;
+            top: 308px;
+
+        }
+        #result { 
+            display : inline;
+        }
+        #imga {
+            position: absolute;
+            width: 592px;
+            height: 347px;
+            left: 500px;
+            top: 321px;
         }
 
-    
+        #comments {
+            text-align: left;
+            margin-top: 10px;
+            position: absolute;
+            font-family: 'GmarketSansBold';
+            left: 320px;
+            width:100%;
+            height: 347px;
+        }
+        html, body{
+        margin: 0;
+        padding: 0;
+        }
+        #wrap {
+        min-width: 50%;
+         min-height: 100%;
+        position: relative;
+        width: 100%;
+        padding-bottom: 60px;
+    }
+    section {
+        padding-bottom: 110px;
+    }
+    footer {
+       width:100%;
+       height: 110px;
+       bottom:0px;
+       position: absolute;
+}
+
+       /* //  */
     </style>
+
 </head>
 <body>
+    <div id = "wrap">
+        <section>
     <header>
-        Header 영역
+        <div id = "logo">
+            <div>
+                <div class = "dots">
+                    <img src = "img/germany.png">
+                    <img src = "img/korea.jpg">
+                </div>
+                <div class = "logo-first" onclick="newPageM()">독한<img class = "devil" src = "img/devil.png"></div>
+                <div class = "logo-second">커뮤니티 </div>
+            </div>
+        </div>
+        <input id = "profile" type="button" value="프로필 보기">
     </header>
    <article>
-            <h1> 게시글 제목</h1>
-            <p>본문 내용</p>
+    <div class = "title">
+        <h1> 이제는 일상이 되어버린 곳에서</h1>
+    </div>       
+    <div class = "sub">
+        <h3><span id = "by">by</span>  이상원</h3>
+        
+    </div>  
+    <div class = "content">
+        <img src = "img/germany.png" id = "imga">
+        <p id = "contenta">늘 가고싶었던 꿈의 도시였다. 그런데 막상 와보니까 여기도 현실은 현실이다...</p>
+        <div id = "like">
+            <input id = 'button' type='button' onclick='count("plus")'  value='♥'/>
+            <div id='result'>0</div>
+            </div>
+    </div>  
+    </article>
+    <div id="form-commentInfo">
+        <div id="comment-count">댓글 <span id="count">0</span></div>
+        <input id="comment-input" placeholder="댓글을 작성하세요.">
+        <button id="submit" onclick="pressBtn()">등록</button>
+    </div>
+    <div id=comments>
 
-        </article>
+    </div>
+    <script src="index.js"></script>
+    </section>
     <footer>
-        Footer 영역
-    </footer>
+        ada
+     </footer>
+</div>
+
 </body>
+
 </html>
