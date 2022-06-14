@@ -1,0 +1,97 @@
+#report {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -350px;
+  margin-top: -225px;
+  width: 700px;
+  height: 450px;
+  /*border: 1px solid black;*/
+  background-color: #F1F1F1;
+}
+#report div {
+  /*border: 1px solid black;*/
+  height: 50px;
+}
+#report > div {
+  margin-left: 30px;
+  margin-right: 80px;
+  margin-top: 10px;
+}
+#report > div:first-child, #report > div:nth-child(3) {
+  line-height: 50px;
+}
+#report > div:last-child {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 190px;
+  position: relative;
+}
+#reportReasonSelUp, #reportReasonSelDown {
+  overflow: hidden;
+}
+#reportReasonSelUp > *, #reportReasonSelDown > * {
+  float: left;
+}
+#reportReasonSelUp > * {
+  margin-right: 20px;
+  width: 125px;
+}
+#reportReasonSelDown > * {
+  margin-right: 20px;
+  width: 65px;
+}
+#reportReasonSelDown > div:first-child {
+  margin-right: 20px;
+  width: 180px;
+}
+input, button {
+  border: 1px solid white;
+}
+body > button {
+  border: 1px solid black;
+}
+.input button {
+  background-color: #FFFFFF;
+  color: gray;
+  width: 125px;
+  height: 50px;
+  font-size: 17px;
+  font-weight: 700;
+}
+.input {
+  background-color: #FFFFFF;
+}
+#reportReasonSelDown > .input:first-child > button {
+  width: 180px;
+}
+#reportReasonSelDown > .input:nth-child(2) > button {
+  width: 65px;
+}
+#otherReportReason {
+  margin-bottom: 27px;
+}
+input[type="text"] {
+  line-height: 60px;
+  width: 580px;
+  height: 45px;
+}
+#reportOrCancel > * {
+  position: absolute;
+  top: 7px;
+  color: #FFFFFF;
+  height: 30px;
+  border: 1px solid white;
+  border-radius: 5px;
+  box-shadow: 0 3px 1px gray;
+}
+#reportOrCancel > button:first-child {
+  background-color: #909090;
+  margin-right: 70px;
+}
+#reportOrCancel > button:nth-child(2) {
+  left: 90px;
+  width: 100px;
+  background-color: #DC2024;
+}
