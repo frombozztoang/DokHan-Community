@@ -32,7 +32,7 @@ function getData() {
 }
 
 
-//좋아요 수 세기
+//좋아요 수 세기, 수정 필요할듯..?
 function count(type)  {
   let number = resultElement.innerText;
   if(type === 'plus') {
@@ -163,8 +163,6 @@ function showComment(comment){
     }
 
     Comments.push(commentObj);
-    //console.dir(comments);
-
     window.localStorage.setItem(tArray, JSON.stringify(Comments));
 }
 
@@ -182,7 +180,6 @@ function pressBtn(){
 }
 
 //엔터로 댓글 입력
-
 inputBar.addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
       event.preventDefault();
@@ -190,10 +187,10 @@ inputBar.addEventListener("keyup", function (event) {
     }
   });
 
-  function init() {
-  makeComment
-  }
-  init()
+  // function init() {
+  // makeComment
+  // }
+  // init()
 
   
 
