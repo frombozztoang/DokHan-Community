@@ -4,12 +4,18 @@
 
 /* Components */
 @import "components/logo.css";
+@import "components/posts.css";
 
 
 
 /* Screens */
 @import "screens/login.css";
+
+
+
+
 @import "screens/report.css";
+
 
 
 /* Fonts */
@@ -38,5 +44,6 @@ body {
   font-family: 'GmarketSansMedium';
   margin: 25px;
   height: 100%;
-  width: 100%;
+  background-color: #F1F3F5;
+
 }

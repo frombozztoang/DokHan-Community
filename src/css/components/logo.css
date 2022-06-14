@@ -34,4 +34,28 @@
 }
 
 
+.logo-small .logo-first {
+  font-size: 53px;
+}
+.logo-small .logo-second {
+  font-size: 40px;
+}
+.logo-small .devil {
+  width: 65px;
+  height: 45px;
+  margin-left: -3px;
+
+}
+
+.logo-small img:not(.devil) {
+  margin-left: 10px;
+  margin-bottom: -9px;
+  width: 28px;
+  height: 28px;
+}
+
+.logo-small img:first-child{
+  margin-right: 10px;
+}
+
 
