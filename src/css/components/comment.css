@@ -1,0 +1,81 @@
+#form-commentInfo{
+  position: relative;
+  top: 220px;
+
+ display: flex;
+ flex-direction: column;
+}
+.comment-button {
+  margin-top: 40px;
+  position: relative;
+  top: 200px;
+
+  width: 120px;
+  height: 40px;
+  background-color: var(--main-color-red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+border-radius: 10px;
+left: 755px;
+
+}
+
+.comment-button button {
+  background-color: var(--main-color-red);
+  border: none;
+  color: white;
+  font-size: 15px;
+
+
+}
+#comments {
+  position: absolute;
+  top: 700px;
+
+
+}
+
+#comment-count {
+  margin-top: 25px;
+  font-size: 15px;
+  font-weight: bold;
+
+  color: rgba(0, 0, 0, 0.85);
+  margin-bottom: 10px;
+}
+
+#comment-input {
+  width: 860px;
+  height: 90px;
+  border-radius: 10px;
+  padding-left: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  background-color: whitesmoke;
+
+}
+
+#comments {
+  position: relative;
+  top: 250px;
+
+}
+
+.eachComment .name {
+  font-size: 17px;
+}
+
+.eachComment {
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  margin-bottom : 20px;
+
+}
+
+.eachComment .time {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.55);
+  margin-bottom: 15px;
+}

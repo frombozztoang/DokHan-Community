@@ -5,6 +5,7 @@
 /* Components */
 @import "components/logo.css";
 @import "components/posts.css";
+@import "components/comment.css";
 
 
 
@@ -47,6 +48,10 @@ body {
   font-family: 'GmarketSansMedium';
   margin: 25px;
   height: 100%;
-  background-color: #F1F3F5;
+  background-color: #fcfcfc;
 
+}
+
+.report-log {
+  display: none;
 }

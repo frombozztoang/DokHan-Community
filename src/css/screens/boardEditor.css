@@ -3,14 +3,16 @@
 .boardEditor-body .logo-small {
 
   position: relative;
-  left: 53px;
+  left: 118px;
   top: -20px;
 }
 
 .editor__container {
   position: relative;
+  width: 1200px;
   top: 160px;
   left: 90px;
+
 }
 
 .editor__form {
@@ -27,22 +29,24 @@
 
 .editor__title-input {
   width: 1280px;
-
-  background-color: #F1F3F5;
   border: none;
   padding: 20px 0 0;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 43px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.75);
+  background-color: #FCFCFC;
+
 }
 
 .editor__content-input {
   width: 1280px;
-  background-color:  #F1F3F5;
+  background-color:  whitesmoke;;
+  padding: 20px;
+  box-sizing: border-box;
   border: none;
   font-size: 16px;
   padding-bottom:200px;
+  border-radius: 10px;
 
 }
 
@@ -58,7 +62,7 @@
   background-color: rgba(0, 0, 0, 0.25);
   margin-right: 10px;
   font-size: 15px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   height: 30px;
   display: flex;
   align-items: center;
@@ -72,7 +76,7 @@
 .editor__btn {
   position:absolute;
   bottom: -80px;
-  right: 200px;
+  right: -88px;
   height: 40px;
   display: flex;
   align-items: center;
