@@ -1,18 +1,23 @@
 header {
   width: 1370px;
-  height: 150px;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: fixed;
-  top: 25px;
-  left: 88px;
+  top: 20px;
+
+
 
   z-index: 1;
-  background-color: #F1F3F5;
+  background-color: #fcfcfc;
   margin: -25px;
   padding-top: 30px;
 
+}
+
+.main-body header{
+  right: 130px;
 }
 
 
@@ -63,6 +68,7 @@ padding-bottom: 6px;
   margin-left: 10px;
   width: 35px;
   height: 35px;
+
   object-fit: contain;
 }
 
@@ -92,10 +98,10 @@ padding-bottom: 6px;
 .main-profile {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+
   object-fit: contain;
-  background-color: aquamarine;
-  margin-right: 30px;
+
+  margin-right: 40px;
   margin-left: 25px;
 }
 
@@ -129,7 +135,7 @@ padding-bottom: 6px;
   right: 50px;
   text-align: center;
   padding: 25px 0 20px 0;
-  background-color:#F1F3F5;
+  background-color:#fcfcfc;;
 
 }
 
