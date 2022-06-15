@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>신고 화면</title>
   <link rel="stylesheet" href="css/style.css">
-  
+
   <script>
-    function showReportScreen () {
+    function showReportScreen() {
       var rptScreen = document.getElementById('report');
       rptScreen.style.display = "block";
     }
-    function cancel(){  
+    function cancel() {
       var rptScreen = document.getElementById('report');
       rptScreen.style.display = "none";
     }
     function changeColor(buttonObj) {
       // 클릭 시 색 변환
       var buttons = document.querySelectorAll('.input > button');
-      for(var i = 0; i < buttons.length; i++) {
+      for (var i = 0; i < buttons.length; i++) {
         buttons[i].style.backgroundColor = '#FFFFFF';
         buttons[i].style.color = 'gray';
       }
-      
+
       buttonObj.style.backgroundColor = '#DC2024';
       buttonObj.style.color = '#FFFFFF';
     }
     var isClicked = [false, false, false, false, false, false];
-    function initIsClicked (clicked) {
-      for(var i = 0; i < isClicked.length; i++) {
-        if(i != clicked) isClicked[i] = false;
+    function initIsClicked(clicked) {
+      for (var i = 0; i < isClicked.length; i++) {
+        if (i != clicked) isClicked[i] = false;
       }
     }
     var inputValue = '';
@@ -40,17 +41,17 @@
       var buttons = document.querySelectorAll('.input > button');
       changeColor(buttons[i]);
       elseInput = document.querySelector('#otherReportReason > input');
-      if(i == 5) {
-          if(elseInput.getAttribute('disabled') == 'disabled') elseInput.removeAttribute('disabled');
-          else {
-            elseInput.setAttribute('disabled', 'disabled');
-            elseInput.value = '';
-          }
-      } else {
+      if (i == 5) {
+        if (elseInput.getAttribute('disabled') == 'disabled') elseInput.removeAttribute('disabled');
+        else {
           elseInput.setAttribute('disabled', 'disabled');
           elseInput.value = '';
+        }
+      } else {
+        elseInput.setAttribute('disabled', 'disabled');
+        elseInput.value = '';
       }
-      if(!isClicked[i]) inputValue = buttons[i].textContent;
+      if (!isClicked[i]) inputValue = buttons[i].textContent;
       else inputValue = '';
     }
     function btEnter(i) {
@@ -62,7 +63,7 @@
     function btLeave(i) {
       // 마우스 나가면 이벤트 정의
       var button = document.querySelectorAll('.input > button')[i];
-      if(!isClicked[i]){
+      if (!isClicked[i]) {
         button.style.backgroundColor = '#FFFFFF';
         button.style.color = 'gray';
       }
@@ -141,19 +142,19 @@
         btLeave(5);
       }
     }
-    function report(){
+    function report() {
       var temp = '';
       var reportObj = document.querySelector('#selReportContinput > input').value;
-      if(reportObj.length == 0) {
+      if (reportObj.length == 0) {
         alert('신고 대상을 입력해 주세요');
         return;
       }
-      if(inputValue.length == 0) {
+      if (inputValue.length == 0) {
         alert('버튼을 클릭해 주세요');
         return;
       }
-      if(inputValue == '기타') {
-        if(elseInput.value.length == 0) {
+      if (inputValue == '기타') {
+        if (elseInput.value.length == 0) {
           alert('기타 사유를 입력해 주세요');
           return;
         }
@@ -171,6 +172,7 @@
     }
   </script>
 </head>
+
 <body>
   <button onclick="showReportScreen()">신고하기</button>
   <div id="report">
@@ -199,14 +201,14 @@
     </div>
     <div id="reportReasonSelDown">
       <div class="input">
-        <button>같은내용 반복개시</button>
+        <button>같은내용 반복 게시</button>
       </div>
       <div class="input">
         <button>기타</button>
       </div>
     </div>
     <div id="otherReportReason">
-      <input type="text" placeholder="기타 신고 사유를 작성해 주세요..." disabled = 'disabled'>
+      <input type="text" placeholder="기타 신고 사유를 작성해 주세요..." disabled='disabled'>
     </div>
     <div id="reportOrCancel">
       <button id="cancel" onclick="cancel()">취소</button>
@@ -214,4 +216,5 @@
     </div>
   </div>
 </body>
+
 </html>

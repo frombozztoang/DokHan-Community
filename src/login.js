@@ -4,7 +4,7 @@ window.onload = function(){
     const frist_key = window.localStorage.key(0);
     if(frist_key == null){
         window.localStorage.setItem('total_user_Index', 0);
-    } 
+    }
     window.localStorage.setItem('current_user', null);
 }
 
@@ -31,7 +31,7 @@ function login(){
             var user_info = JSON.parse(user_info_String);
             if(login_info[0] == user_info[0] && login_info[1] == user_info[1]){
                 window.localStorage.setItem('current_user', user_info[3]);
-                location.href = "testmain.html";
+                location.href = "main.html";
                 return;
             }
         }

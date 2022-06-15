@@ -46,7 +46,7 @@
   margin-right: 20px;
   width: 180px;
 }
-input, button {
+input:not(.tooltip input), button {
   border: 1px solid white;
 }
 body > button {
@@ -72,7 +72,7 @@ body > button {
 #otherReportReason {
   margin-bottom: 27px;
 }
-input[type="text"] {
+input[type="text"]:not(.editor__container input,.tooltip input) {
   line-height: 60px;
   width: 580px;
   height: 45px;
