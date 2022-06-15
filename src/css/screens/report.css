@@ -1,19 +1,34 @@
 #report {
-  display: none;
+  border-radius: 10px;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 60%;
   margin-left: -350px;
   margin-top: -225px;
-  width: 700px;
+  width: 800px;
   height: 450px;
   /*border: 1px solid black;*/
   background-color: #F1F1F1;
+  z-index: 100;
 
 }
 #report div {
   /*border: 1px solid black;*/
   height: 50px;
+}
+
+#selReportContinput{
+  padding: 3px;
+  padding-left: 8px;
+
+}
+
+#otherReportReason {
+
+  border: 1px solid rgba(0,0,0,0.55);
+  padding: 2px;
+  border-radius: 10px;
+  padding-left: 8px;
 }
 #report > div {
   margin-left: 30px;
@@ -48,7 +63,7 @@
   width: 180px;
 }
 input:not(.tooltip input), button {
-  border: 1px solid white;
+  border: none;
 }
 body > button {
   border: 1px solid black;
@@ -58,10 +73,12 @@ body > button {
   color: gray;
   width: 125px;
   height: 50px;
-  font-size: 17px;
-  font-weight: 700;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
 }
 .input {
+  border-radius: 10px;
   background-color: #FFFFFF;
 }
 #reportReasonSelDown > .input:first-child > button {
@@ -96,4 +113,20 @@ input[type="text"]:not(.editor__container input,.tooltip input) {
   width: 100px;
   background-color: #DC2024;
 }
+
+.report__button{
+  position: relative;
+  top: 200px;
+  left: 1100px;
+  border: none;
+  background-color: white;
+  color: rgba(0,0,0,0.55);
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.15);
+  padding: 4px;
+  font-size: 12px;
+  border-radius: 6px;
+  z-index: 100;
+}
+
 

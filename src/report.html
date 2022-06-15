@@ -9,13 +9,14 @@
   <link rel="stylesheet" href="css/style.css">
 
   <script>
-    function showReportScreen() {
-      var rptScreen = document.getElementById('report');
-      rptScreen.style.display = "block";
-    }
+    // function showReportScreen() {
+    //   var rptScreen = document.getElementById('report');
+    //   rptScreen.style.display = "block";
+    // }
     function cancel() {
       var rptScreen = document.getElementById('report');
-      rptScreen.style.display = "none";
+
+      location.href = 'main.html';
     }
     function changeColor(buttonObj) {
       // 클릭 시 색 변환
@@ -169,12 +170,41 @@
       localStorage.setItem('reportWho', reportObj);
       localStorage.setItem('reportReason', inputValue);
       alert('로컬스토리지 저장 완료' + '\n' + localStorage.getItem('reportWho') + ', ' + localStorage.getItem('reportReason'));
+      location.href = 'main.html';
     }
+
   </script>
 </head>
 
 <body>
-  <button onclick="showReportScreen()">신고하기</button>
+  <header class="board-header">
+    <a href="main.html">
+      <div id="logo" class="logo-small">
+        <div>
+          <div class="dots">
+            <img src="img/germany.png">
+            <img src="img/korea.jpg">
+          </div>
+          <div class="logo-first">독한<img class="devil" src="img/devil.png" /></div>
+          <div class="logo-second">커뮤니티</div>
+        </div>
+      </div>
+    </a>
+    <div class="search">
+      <div class="search-bar">
+        <input type="text" placeholder="키워드를 입력하세요.">
+        <img src="img/glass.svg">
+      </div>
+
+    </div>
+
+    <div class="report">
+      <div class="report-log">신고 내역</div>
+      <div> <img class="main-profile" src="img/devil.png"></div>
+
+
+    </div>
+  </header>
   <div id="report">
     <div id="selReportContLabel">
       <p>신고를 하면 해당 게시글, 해당 유저는 검토 후 삭제, 차단 됩니다.</p>
