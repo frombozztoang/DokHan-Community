@@ -146,11 +146,13 @@
 .posts:hover {
   animation: slide-top 0.5s ease-in-out both;
 }
-
+.board__content:hover{
+  animation: slide-top 0.5s ease-in-out both;
+}
 
 
 .board__content {
- border: 1px solid rgba(0, 0, 0, 0.25);
+
  padding: 30px;
   margin: 100px;
   position: relative;
@@ -159,6 +161,7 @@
   height: 250px;
   background-color: white;
   border-radius: 7px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .board__content:first-child {
@@ -179,14 +182,14 @@
 
   position: absolute;
   top: -90px;
-  left: 580px;
+  left: 560px;
 
 }
 .board__content:nth-child(4){
 
   position: absolute;
   top: -90px;
-  left: 910px;
+  left: 870px;
 
 }
 
@@ -210,7 +213,7 @@
 
   position: absolute;
   top: 250px;
-  left: 580px;
+  left: 560px;
 
 }
 
@@ -218,7 +221,7 @@
 
   position: absolute;
   top: 250px;
-  left: 910px;
+  left: 870px;
 
 }
 
@@ -243,11 +246,11 @@
 }
 
 .board__content-column:nth-child(2){
-  background-color:rgb(240, 240, 240);
+  background-color:rgb(245, 245, 245);
   border-radius: 15px;
   padding: 17px;
   box-sizing: border-box;
-  margin-left: -5px;
+  margin-left: -6.7px;
   width: 243px;
   height: 170px;
   display: flex;
@@ -268,4 +271,5 @@
 
   font-size: 14px;
 }
+
 

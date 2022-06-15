@@ -12,19 +12,19 @@
 
 
 <body>
-  <header>
-    <div id="logo" class="logo-small">
-      <div>
-        <div class="dots">
-          <img src="img/germany.png">
-          <img src="img/korea.jpg">
+  <header class="board-header">
+    <a href="main.html">
+      <div id="logo" class="logo-small">
+        <div>
+          <div class="dots">
+            <img src="img/germany.png">
+            <img src="img/korea.jpg">
+          </div>
+          <div class="logo-first">독한<img class="devil" src="img/devil.png" /></div>
+          <div class="logo-second">커뮤니티</div>
         </div>
-        <div class="logo-first">독한<img class="devil" src="img/devil.png" /></div>
-        <div class="logo-second">커뮤니티</div>
       </div>
-    </div>
-
-
+    </a>
     <div class="search">
       <div class="search-bar">
         <input type="text" placeholder="키워드를 입력하세요.">
@@ -39,16 +39,34 @@
 
 
     </div>
-
-
   </header>
 
-  <div class="contents__container"></div>
 
 
+
+  <div class="board_body">
+
+    <div class="boaderEditor-content">
+      <div class="contents__container"></div>
+
+      <div id="form-commentInfo">
+        <div id="comment-count"> <span id="count">0</span>개의 댓글</div>
+        <input id="comment-input" placeholder="댓글을 작성하세요.">
+
+      </div>
+      <div class="comment-button">
+        <button id="submit" onclick="pressBtn()">댓글 작성</button>
+      </div>
+      <div id=comments>
+
+      </div>
+      <script src="comment.js"></script>
+      <script src="board.js"></script>
+    </div>
+  </div>
 </body>
 
 
-<script src="board.js"></script>
+
 
 </html>
