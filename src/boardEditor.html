@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body class="boardEditor-body">
+  <header>
+    <a href="main.html">
+      <div id="logo" class="logo-small">
+        <div>
+          <div class="dots">
+            <img src="img/germany.png">
+            <img src="img/korea.jpg">
+          </div>
+          <div class="logo-first">독한<img class="devil" src="img/devil.png" /></div>
+          <div class="logo-second">커뮤니티</div>
+        </div>
+      </div>
+    </a>
+  </header>
+
+
+
+
+  <div class="editor__container">
+    <form action="main.html" class="editor__form" id="editor-form" onsubmit="return onEditorFormSubmit();">
+
+
+
+      <input type="text" class="editor__title-input" id="editor-title-input" placeholder="제목을 입력하세요." />
+      <div class="editor__container-tags">
+        <div class="editor__container-tag" onclick="tagsClick()">자유게시판</div>
+        <div class="editor__container-tag2" onclick="tagsClick2()">구인구직</div>
+        <div class="editor__container-tag3" onclick="tagsClick3()">중고장터</div>
+      </div>
+      <input type="text" class="editor__content-input" id="editor-content-input" placeholder="당신의 이야기를 적어보세요." />
+      <button class="editor__btn" id="editor-submit-btn">작성 완료</button>
+
+    </form>
+  </div>
+  <script src=" board.js"></script>
+</body>
+
+</html>

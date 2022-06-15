@@ -1,0 +1,36 @@
+.contents__container{
+  background-color: aqua;
+  position: relative;
+  top: 200px;
+  left: 60px;
+  width: 1300px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+}
+
+.contents__container .contents__title {
+
+  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: 20px;
+
+}
+
+.contents__column:nth-child(2) {
+  display: flex;
+ margin-left: 10px;
+}
+
+.contents__author {
+  margin-right: 30px;
+  font-size: 17px;
+}
+
+.contents__date {
+  font-size: 15px;
+  font-style: italic;
+  font-weight: lighter;
+}
+
