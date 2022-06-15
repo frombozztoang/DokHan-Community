@@ -64,3 +64,17 @@ font-size: 20px;
   background-color: whitesmoke;
 
 }
+
+.board__tag-show,
+.board__tag-show2,
+.board__tag-show3 {
+  padding: 10px;
+  position: absolute;
+  background-color: #DE3639;
+  top: 400px;
+
+}
+
+.hidden {
+  display: none;
+}

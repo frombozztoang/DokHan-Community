@@ -64,18 +64,30 @@ left: 755px;
 
 .eachComment .name {
   font-size: 17px;
+  margin-bottom: 10px;
 }
 
 .eachComment {
   padding: 15px;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.09);
-  margin-bottom : 20px;
+  margin-bottom : 25px;
 
 }
 
 .eachComment .time {
   font-size: 13px;
   color: rgba(0, 0, 0, 0.55);
-  margin-bottom: 15px;
+  margin-bottom: 25px;
+
+}
+
+.eachComment .deleteComment {
+  color: rgba(0, 0, 0, 0.55);
+  position: absolute;
+  top: 15px;
+  right:15px;
+  border-radius: 10px;
+  font-size: 10px;
+  padding: 5.9px;
 }
