@@ -9,6 +9,7 @@
   height: 450px;
   /*border: 1px solid black;*/
   background-color: #F1F1F1;
+
 }
 #report div {
   /*border: 1px solid black;*/
@@ -95,3 +96,4 @@ input[type="text"]:not(.editor__container input,.tooltip input) {
   width: 100px;
   background-color: #DC2024;
 }
+
