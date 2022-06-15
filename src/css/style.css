@@ -10,6 +10,9 @@
 
 /* Screens */
 @import "screens/login.css";
+@import "screens/main.css";
+@import "screens/boardEditor.css";
+@import "screens/boardDetail.css";
 
 
 

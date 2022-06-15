@@ -1,0 +1,91 @@
+
+
+.boardEditor-body .logo-small {
+
+  position: relative;
+  left: 53px;
+  top: -20px;
+}
+
+.editor__container {
+  position: relative;
+  top: 160px;
+  left: 90px;
+}
+
+.editor__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.editor__form input, button {
+
+  font-family: inherit;
+}
+
+.editor__title-input {
+  width: 1280px;
+
+  background-color: #F1F3F5;
+  border: none;
+  padding: 20px 0 0;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 43px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.75);
+}
+
+.editor__content-input {
+  width: 1280px;
+  background-color:  #F1F3F5;
+  border: none;
+  font-size: 16px;
+  padding-bottom:200px;
+
+}
+
+.editor__container-tags {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.editor__container-tag,
+.editor__container-tag2,
+.editor__container-tag3 {
+  background-color: rgba(0, 0, 0, 0.25);
+  margin-right: 10px;
+  font-size: 15px;
+  margin-bottom: 50px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding:9px;
+  cursor: pointer;
+}
+
+
+.editor__btn {
+  position:absolute;
+  bottom: -80px;
+  right: 200px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding:17px;
+  opacity: 0.9;
+  cursor: pointer;
+  font-size: 19px;
+  border: none;
+  background-color: var(--main-color-red);
+  color: white;
+
+
+}
+
