@@ -425,7 +425,11 @@ function showComment(comment, currentUser, pIndex){
 
   const commentList = document.createElement('div');  //이놈이 스코프 밖으로 나가는 순간 하나지우면 다 지워지고 입력하면 리스트 다불러옴.
   //삭제버튼 만들기
-
+  if(window.localStorage.getItem("current_user").includes(null)) {
+    btn.disabled = true
+ } else {
+    btn.disabled = false
+ }
 
 
   commentList.className = "eachComment";
