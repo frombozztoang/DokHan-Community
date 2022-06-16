@@ -1,70 +1,69 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <script src="signup.js"></script>
-        <link rel="stylesheet" href="css/style.css">
-      </head>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="signup.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
 
 <body>
-    <main class="login">
+  <main class="login">
+    <div>
+      <div id="logo">
         <div>
-            <div id="logo">
-              <div>
-                <div class="dots">
-                  <img src="img/germany.png">
-                  <img src="img/korea.jpg">
-      
-                </div>
-                <div class="logo-first">독한<img class="devil" src="img/devil.png" /></div>
-                <div class="logo-second">커뮤니티</div>
-              </div>
-            </div>
-      
-            <div class="login-info">
-              독일 프랑크푸르트에 거주하는 한국인을 위한 커뮤니티입니다.
-              <div>일상을 공유하고, 중고 거래와 구인 구직 서비스 등 독한 커뮤니티를 즐겨보세요!</div>
-            </div>
+          <div class="dots">
+            <img src="img/germany.png">
+            <img src="img/korea.jpg">
+
           </div>
+          <div class="logo-first">독한<img class="devil" src="img/devil.png" /></div>
+          <div class="logo-second">커뮤니티</div>
+        </div>
+      </div>
 
-          <div class="login-right">
+      <div class="login-info">
+        독일 프랑크푸르트에 거주하는 한국인을 위한 커뮤니티입니다.
+        <div>일상을 공유하고, 중고 거래와 구인 구직 서비스 등 독한 커뮤니티를 즐겨보세요!</div>
+      </div>
+    </div>
+
+    <div class="login-right">
 
 
-            <form class="login-forms" onsubmit="return checkEmail();">
-              <div class="tooltip">
-                <input type="text" id="signUpName" required placeholder="성명" pattern="^[a-zA-Z]+$"
-                  title="영문만 사용할 수 있습니다."/>
-                  <div class="error"></div>
-                <input type="text" id="signUpNic" required placeholder="닉네임" pattern="^[a-zA-Z0-9]+$"
-                  title="숫자와 영문만 사용할 수 있습니다."/>
-                  <div id="nickError" class="error"></div>
-                <input type="email" id="signUpEmail" required placeholder="이메일 주소"/>
-                <div id="emailError" class="error"></div>
-              </div>
-                <input type="submit" value="이메일 확인" />
-                <div class="tooltip">
-                  <input type="password" id="signUpPw" required placeholder="비밀번호" 
-                    pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" 
-                    title="숫자, 영문, 특수문자를 각 1개 이상 포함시켜주세요.(최소8자리~최대16자리)"/>
-                </div>
-      
-            </form>
-      
-            <div class="line"></div>
-            <br>
-            <form class="login-forms" action="login.html" onsubmit="return singUp();">
-                <input type="submit" id="signup" value="가입하기" >
-            </form>
-            <div class="login-join">
-              <div>계정이 있으신가요?</div>
-              <a href="login.html">로그인</a>
-            </div>
-          </div>
-    </main>
+      <form class="login-forms" onsubmit="return checkEmail();">
+        <div class="tooltip">
+          <input type="text" id="signUpName" required placeholder="성명" pattern="^[a-zA-Z]+$" title="영문만 사용할 수 있습니다." />
+          <div class="error"></div>
+          <input type="text" id="signUpNic" required placeholder="닉네임" pattern="^[a-zA-Z0-9]+$"
+            title="숫자와 영문만 사용할 수 있습니다." />
+          <div id="nickError" class="error"></div>
+          <input type="email" id="signUpEmail" required placeholder="이메일 주소" />
+          <div id="emailError" class="error"></div>
+        </div>
+        <input type="submit" value="이메일 확인" />
+        <div class="tooltip">
+          <input type="password" id="signUpPw" required placeholder="비밀번호"
+            pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$"
+            title="숫자, 영문, 특수문자를 각 1개 이상 포함시켜주세요.(최소8자리~최대16자리)" />
+        </div>
+
+      </form>
+
+      <div class="line"></div>
+      <br>
+      <form class="login-forms" action="login.html" onsubmit="return singUp();">
+        <input type="submit" id="signup" value="가입하기">
+      </form>
+      <div class="login-join">
+        <div>계정이 있으신가요?</div>
+        <a href="index.html">로그인</a>
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>
